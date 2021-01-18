@@ -1,23 +1,32 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import SessionContext from './SessionContext.js';
 import Recipe from './Recipe.js';
 
-const Recipes = () => {
-  const sessionContext = useContext(SessionContext);
-  const recipes = sessionContext.state.recipesPayload.map((recipe, index) => {
-    return (
-      <li key={index}>
-        <Recipe {...recipe} />
-      </li>
-    );
-  });
+class Recipes extends React.Component {
 
-  return (
-    <div className="menuComponent">
-      <h1>Recipes</h1>
-      <ul>{ recipes }</ul>
-    </div>
-  );
+  static contextType = SessionContext;
+
+  // handleChange = e => {
+  //   this.props.history.push(`/chat/rooms/?rm=${e.target.value}`);
+  // }
+
+  render() {
+    const { recipesPayload } = this.context.state;
+    console.log(recipesPayload);
+    const recipes = recipesPayload.map(recipe => {
+      return(
+        <Recipe key={recipe.uuid} {...recipe} />
+      );
+    });
+
+    return true
+      ? <div><ul>{recipes}</ul></div>
+      : (
+        <div>
+          <h1>not</h1>
+        </div>
+      );
+  }
 };
 
 export default Recipes;

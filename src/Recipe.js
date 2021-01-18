@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Recipe = recipe => {
-console.log(recipe);
   return (
     <div>
       <h3>{recipe.title}</h3>
