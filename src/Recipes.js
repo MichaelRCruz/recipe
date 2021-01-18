@@ -1,6 +1,7 @@
 import React from 'react';
 import SessionContext from './SessionContext.js';
 import Recipe from './Recipe.js';
+import RecipeDetail from './RecipeDetail.js';
 
 class Recipes extends React.Component {
 
@@ -11,7 +12,6 @@ class Recipes extends React.Component {
   }
 
   handleClick = uuid => {
-    console.log(uuid);
     this.setState({
       activeRecipe: uuid
     });
@@ -19,7 +19,6 @@ class Recipes extends React.Component {
 
   render() {
     const { recipesPayload } = this.context.state;
-    console.log(recipesPayload);
     const recipes = recipesPayload.map(recipe => {
       return(
         <li
@@ -38,7 +37,10 @@ class Recipes extends React.Component {
       ? <div><ul>{recipes}</ul></div>
       : (
         <div>
-          <h1>not</h1>
+          <RecipeDetail
+            uuid={this.state.activeRecipe}
+            handleClick={this.handleClick}
+          />
         </div>
       );
   }
