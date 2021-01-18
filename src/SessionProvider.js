@@ -12,12 +12,14 @@ class SessionProvider extends React.Component {
   };
 
   state = {
-      recipes: []
+      recipes: [],
+      specials: []
   };
 
   initializeApp = async () => {
-      const payload = await api.getRecipes();
-      this.setState({ recipes: payload });
+      const recipes = await api.getRecipes();
+      const specials = await api.getSpecials();
+      this.setState({ recipes, specials });
   };
 
   componentDidMount() {

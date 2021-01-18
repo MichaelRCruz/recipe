@@ -33,6 +33,14 @@ export default class RealTimeApi {
       });
       return recipes ? recipes : {};
     }
+
+    getSpecials = async () => {
+      const url = `http://localhost:3001/specials`;
+      const specials = await this.goFetch(url, {
+        method: 'GET',
+      });
+      return specials ? specials : {};
+    }
   
   
   }
