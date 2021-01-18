@@ -1,0 +1,16 @@
+.recipesContainer {
+    width: 50%;
+    margin: auto;
+    background-color: lightgray;
+    padding: 20px 10px;
+  }
+
+.recipesList {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: center;
+}
+
+.recipe {
+    background-color: gray;
+}

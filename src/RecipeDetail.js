@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import SessionContext from './SessionContext.js';
 
 const RecipeDetail = props => {
+
+  const sessionContext = useContext(SessionContext);
+  
+  const { state } = sessionContext;
+  const recipe = state.recipes[props.uuid];
+  const specialIngredients = Object.keys(state.specialIngredients);
+
 
   return (
     <div>
@@ -12,5 +20,5 @@ const RecipeDetail = props => {
     </div>
   );
 };
- 
+
 export default RecipeDetail;

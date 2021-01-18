@@ -3,6 +3,8 @@ import SessionContext from './SessionContext.js';
 import Recipe from './Recipe.js';
 import RecipeDetail from './RecipeDetail.js';
 
+import './Recipes.css';
+
 class Recipes extends React.Component {
 
   static contextType = SessionContext;
@@ -21,7 +23,7 @@ class Recipes extends React.Component {
     const { recipesPayload } = this.context.state;
     const recipes = recipesPayload.map(recipe => {
       return(
-        <li
+        <li className='recipe'
           key={recipe.uuid}
           onClick={e => {
             e.preventDefault();
@@ -34,7 +36,9 @@ class Recipes extends React.Component {
     });
 
     return !this.state.activeRecipe
-      ? <div><ul>{recipes}</ul></div>
+      ? <div className='recipesContainer'>
+          <ul className='recipesList'>{recipes}</ul>
+        </div>
       : (
         <div>
           <RecipeDetail
