@@ -6,20 +6,35 @@ class Recipes extends React.Component {
 
   static contextType = SessionContext;
 
-  // handleChange = e => {
-  //   this.props.history.push(`/chat/rooms/?rm=${e.target.value}`);
-  // }
+  state = {
+    activeRecipe: false
+  }
+
+  handleClick = uuid => {
+    console.log(uuid);
+    this.setState({
+      activeRecipe: uuid
+    });
+  }
 
   render() {
     const { recipesPayload } = this.context.state;
     console.log(recipesPayload);
     const recipes = recipesPayload.map(recipe => {
       return(
-        <Recipe key={recipe.uuid} {...recipe} />
+        <li
+          key={recipe.uuid}
+          onClick={e => {
+            e.preventDefault();
+            this.handleClick(recipe.uuid);
+          }}
+        >
+          <Recipe {...recipe} />
+        </li>
       );
     });
 
-    return true
+    return !this.state.activeRecipe
       ? <div><ul>{recipes}</ul></div>
       : (
         <div>
