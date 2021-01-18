@@ -1,42 +1,23 @@
-import React from 'react';
-import RealTimeApi from './RealTimeApi.js';
-import './App.css';
+import React, { useContext } from 'react';
+import SessionContext from './SessionContext.js';
 
-const api = new RealTimeApi();
-
-class Recipes extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      payload: []
-    };
-    // this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(userInput) {
-    this.setState({ value: userInput });
-  }
-
-  componentDidMount = async () => {
-    const payload = await api.getRecipes();
-    console.log(payload);
-    this.setState({ payload });
-  }
-
-  render() {
-    const recipes = this.state.payload.map((recipe, index) => {
-      return (
-        <li key={index}>
-          <p>{recipe.title}</p>
-        </li>
-      );
-    });
+const Recipes = () => {
+  const sessionContext = useContext(SessionContext);
+  console.log('sessionContext: ', sessionContext.state.recipes);
+  const recipes = sessionContext.state.recipes.map((recipe, index) => {
     return (
-      <div className="formContainer">
-        <ul>{recipes}</ul>
-      </div>
+      <li key={index}>
+        {recipe.title}
+      </li>
     );
-  }
-}
+  });
 
-export default Recipes ;
+  return (
+    <div className="menuComponent">
+      <h1>Recipes</h1>
+      <ul>{ recipes }</ul>
+    </div>
+  );
+};
+
+export default Recipes;
