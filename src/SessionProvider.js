@@ -25,14 +25,12 @@ class SessionProvider extends React.Component {
     let specialIngredients = {};
     let recipes = {};
     let specials = {};
-    Object.values(specialsPayload).forEach(special => {
-      specialIngredients[special.ingredientId] = special;
-    });
     Object.values(recipesPayload).forEach(recipe => {
       recipes[recipe.uuid] = recipe;
     });
     Object.values(specialsPayload).forEach(special => {
       specials[special.uuid] = special;
+      specialIngredients[special.ingredientId] = special;
     });
     this.setState({ recipesPayload, specialsPayload, recipes, specials, specialIngredients });
   };
