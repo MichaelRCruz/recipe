@@ -7,41 +7,39 @@ const api = new RealTimeApi();
 
 class SessionProvider extends React.Component {
 
-  updateRecipe = uid => {
-      console.log(uid);
+  state = {
+    recipesPayload: [],
+    specialsPayload: [],
+    recipes: {},
+    specials: {},
+    specialIngredients: {}
   };
 
-  state = {
-      recipes: [],
-      specials: []
+  updateRecipe = uid => {
+    console.log(uid);
   };
 
   initializeApp = async () => {
-      const recipes = await api.getRecipes();
-      const specials = await api.getSpecials();
-      this.setState({ recipes, specials });
+    const recipesPayload = await api.getRecipes();
+    const specialsPayload = await api.getSpecials();
+    let specialIngredients = {};
+    let recipes = {};
+    let specials = {};
+    Object.values(specialsPayload).forEach(special => {
+      specialIngredients[special.ingredientId] = special;
+    });
+    Object.values(recipesPayload).forEach(recipe => {
+      recipes[recipe.uuid] = recipe;
+    });
+    Object.values(specialsPayload).forEach(special => {
+      specials[special.uuid] = special;
+    });
+    this.setState({ recipesPayload, specialsPayload, recipes, specials, specialIngredients });
   };
 
   componentDidMount() {
-      // const { foreignState } = this.props;
-      this.initializeApp();
+    this.initializeApp();
   };
-
-//   static getDerivedStateFromProps(props, state) {
-//     const { rm: roomId } = props.foreignState;
-//     if (roomId !== state.prevRoomId) {
-//       return {
-//         prevRoomId: roomId
-//       };
-//     }
-//     return null;
-//   };
-
-//   componentDidUpdate(prevProps, prevState) {
-//     if (this.props.foreignState.rm !== prevState.prevRoomId) {
-//       this.updateActiveRoom(this.props.foreignState.rm);
-//     }
-//   }
 
   render() {
     return (

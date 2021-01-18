@@ -3,8 +3,7 @@ import SessionContext from './SessionContext.js';
 
 const Recipes = () => {
   const sessionContext = useContext(SessionContext);
-  console.log('sessionContext: ', sessionContext.state.recipes);
-  const recipes = sessionContext.state.recipes.map((recipe, index) => {
+  const recipes = sessionContext.state.recipesPayload.map((recipe, index) => {
     return (
       <li key={index}>
         {recipe.title}
