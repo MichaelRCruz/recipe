@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchBar from './SearchBar.js';
+import Recipes from './Recipes.js';
 import './App.css';
 
 class App extends React.Component {
@@ -7,7 +7,7 @@ class App extends React.Component {
   render() {
     return (
       <main className="formContainer">
-        <SearchBar />
+        <Recipes />
       </main>
     );
   }
