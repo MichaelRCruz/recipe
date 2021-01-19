@@ -18,3 +18,13 @@
     color: red;
     cursor: pointer;
 }
+
+.delete {
+    color: red;
+}
+
+.updateFlex {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}

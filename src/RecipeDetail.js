@@ -23,7 +23,7 @@ const RecipeDetail = props => {
       </li>
     );
   });
-  
+
   const directions = recipe.directions.map((direction, index) => {
     return (
       <li key={index} >
@@ -43,6 +43,10 @@ const RecipeDetail = props => {
       </div>
       <img src={'img/' + recipe.images.medium} alt="sup" />
       <h1>{recipe.title}</h1>
+      <div className='deleteFlex'>
+        <div className='delete' onClick={() => props.handleDelete()}>delete</div>
+        <div className='edit' onClick={() => props.handleEdit()}>edit</div>
+      </div>
       <p>{recipe.postDate}</p>
       <p>{recipe.editDate}</p>
       <h3>Ingredients</h3>
