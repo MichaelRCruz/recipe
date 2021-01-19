@@ -23,13 +23,46 @@ const RecipeDetail = props => {
   return (
     <div>
       <div onClick={() => props.handleClick(false)}>
-        <p>
-          {props.uuid}
-        </p>
-        <ul>{ingredients}</ul>
+        X
       </div>
+      <h1>{recipe.title}</h1>
+      <p>{recipe.postDate}</p>
+      <p>{recipe.editDate}</p>
+      <ul>{ingredients}</ul>
     </div>
   );
 };
 
 export default RecipeDetail;
+
+// [
+//   Recipe {
+//     uuid: String
+//     title: String
+//     description: String
+//     images: {
+//       full: String
+//       medium: String,
+//       small: String
+//     }
+//     servings: Number
+//     prepTime: Number
+//     cookTime: Number
+//     postDate: Date
+//     editDate: Date
+//     ingredients: [
+//       Ingredient {
+//         uuid: String
+//         amount: Number
+//         measurement: String
+//         name: String
+//       }
+//     ]
+//     directions: [
+//       Direction {
+//         instructions: String
+//         optional: Boolean
+//       }
+//     ]
+//   }
+// ]
