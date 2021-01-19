@@ -4,7 +4,7 @@ import './Recipe.css';
 
 const Recipe = props => {
 
-  const { cookTime, prepTime, title, images } = props;
+  const { cookTime, prepTime, title, images, description } = props;
 
   return (
     <div className="card-container">
@@ -13,12 +13,10 @@ const Recipe = props => {
           <span className="card-prepTime subtle">{prepTime} minutes to prepare</span>
           <span className="card-cookTime subtle">{cookTime} minutes to cook</span>
           <h2 className="card-title">{title}</h2>
-          <span className="card-description subtle">These last few weeks I have been working hard on a new brunch recipe for you all.</span>
+          <span className="card-description subtle">{description}</span>
           <div className="card-read">Read</div>
-          <span className="card-tag card-circle subtle">C</span>
         </div>
-        <img src={images.small} alt="" className="card-media" />
-        <p>{images.small}</p>
+        <img src={'img/' + images.small} alt="" className="card-media" />
       </div>
       <div className="card-shadow"></div>
     </div>
