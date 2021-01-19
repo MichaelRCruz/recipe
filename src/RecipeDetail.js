@@ -11,8 +11,11 @@ const RecipeDetail = props => {
   const specialIngredientsIds = Object.keys(state.specialIngredients);
   const ingredients = recipe.ingredients.map(ingredient => {
     return (
-      <li>
-        <Ingredient {...ingredient} />
+      <li key={ingredient.uuid} >
+        <Ingredient
+          specialIngredientsIds={specialIngredientsIds}
+          {...ingredient}
+        />
       </li>
     );
   });
@@ -23,9 +26,7 @@ const RecipeDetail = props => {
         <p>
           {props.uuid}
         </p>
-        <ul>
-        {ingredients}
-      </ul>
+        <ul>{ingredients}</ul>
       </div>
     </div>
   );
