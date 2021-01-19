@@ -1,8 +1,3 @@
-.titleBar {
-    background-color: lightsalmon;
-    text-align: right;
-}
-
 .menuBar {
     display: flex;
     justify-content: space-between;
@@ -13,4 +8,9 @@
 
 .titleBar > li {
     margin: unset;
-} 
+}
+
+.close {
+    color: red;
+    cursor: pointer;
+}

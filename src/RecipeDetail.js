@@ -36,7 +36,7 @@ const RecipeDetail = props => {
         <ul className='menuBar'>
           <li>Crescendo</li>
           <li>{recipe.title}</li>
-          <li onClick={() => props.handleClick(false)}>CLOSE X</li>
+          <li className='close' onClick={() => props.handleClick(false)}>CLOSE X</li>
         </ul>
       </div>
       <img src={'img/' + recipe.images.medium} alt="sup" />

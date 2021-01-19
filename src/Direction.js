@@ -1,13 +1,20 @@
 import React from 'react';
-import SessionContext from './SessionContext.js';
+
+import './Direction.css';
 
 const Direction = props => {
+
+  const { instructions, optional } = props;
   
-  return (
-        <div>
-          <p>{props.instructions}</p>
-        </div>
-      );
+  return !optional
+    ? <div>
+        <p>{instructions}</p>
+      </div>
+    : (
+      <div>
+        <p>{instructions} - <span className='optional'>optional</span></p>
+      </div>
+    );
 };
 
 export default Direction;
