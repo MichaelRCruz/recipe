@@ -23,14 +23,8 @@ class Recipes extends React.Component {
     const { recipesPayload } = this.context.state;
     const recipes = recipesPayload.map(recipe => {
       return(
-        <li className='recipe'
-          key={recipe.uuid}
-          onClick={e => {
-            e.preventDefault();
-            this.handleClick(recipe.uuid);
-          }}
-        >
-          <Recipe {...recipe} />
+        <li className='recipe' key={recipe.uuid}>
+          <Recipe {...recipe} handleClick={this.handleClick} />
         </li>
       );
     });

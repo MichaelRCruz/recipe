@@ -1,3 +1,7 @@
+.recipeDetail {
+    padding: 20px;
+}
+
 .menuBar {
     display: flex;
     justify-content: space-between;

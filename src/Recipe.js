@@ -4,7 +4,7 @@ import './Recipe.css';
 
 const Recipe = props => {
 
-  const { cookTime, prepTime, title, images, description } = props;
+  const { cookTime, prepTime, title, images, description, uuid } = props;
 
   return (
     <div className="card-container">
@@ -14,7 +14,7 @@ const Recipe = props => {
           <span className="card-cookTime subtle">{cookTime} minutes to cook</span>
           <h2 className="card-title">{title}</h2>
           <span className="card-description subtle">{description}</span>
-          <div className="card-read">Read</div>
+          <div className="card-read" onClick={() => props.handleClick(uuid)}>Read</div>
         </div>
         <img src={'img/' + images.small} alt="" className="card-media" />
       </div>

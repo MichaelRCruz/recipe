@@ -12,6 +12,7 @@ const RecipeDetail = props => {
   const { state } = sessionContext;
   const recipe = state.recipes[props.uuid];
   const specialIngredientsIds = Object.keys(state.specialIngredients);
+
   const ingredients = recipe.ingredients.map(ingredient => {
     return (
       <li key={ingredient.uuid} >
@@ -22,6 +23,7 @@ const RecipeDetail = props => {
       </li>
     );
   });
+  
   const directions = recipe.directions.map((direction, index) => {
     return (
       <li key={index} >
@@ -31,7 +33,7 @@ const RecipeDetail = props => {
   });
 
   return (
-    <div>
+    <div className='recipeDetail'>
       <div className='titleBar'>
         <ul className='menuBar'>
           <li>Crescendo</li>
