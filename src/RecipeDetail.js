@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Ingredient from './Ingredient.js';
 import SessionContext from './SessionContext.js';
 
 const RecipeDetail = props => {
@@ -7,8 +8,14 @@ const RecipeDetail = props => {
   
   const { state } = sessionContext;
   const recipe = state.recipes[props.uuid];
-  const specialIngredients = Object.keys(state.specialIngredients);
-
+  const specialIngredientsIds = Object.keys(state.specialIngredients);
+  const ingredients = recipe.ingredients.map(ingredient => {
+    return (
+      <li>
+        <Ingredient {...ingredient} />
+      </li>
+    );
+  });
 
   return (
     <div>
@@ -16,6 +23,9 @@ const RecipeDetail = props => {
         <p>
           {props.uuid}
         </p>
+        <ul>
+        {ingredients}
+      </ul>
       </div>
     </div>
   );
