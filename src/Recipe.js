@@ -1,11 +1,18 @@
 import React from 'react';
 
-const Recipe = recipe => {
+import './Recipe.css';
+
+const Recipe = props => {
+
+  const { cookTime, prepTime, title } = props;
+
   return (
-    <div>
-      <h3>{recipe.title}</h3>
-      <p>cook time: {recipe.cookTime}</p>
-      <p>prep time: {recipe.prepTime}</p>
+    <div className='recipe'>
+      <h3 className='recipeTitle'>{title}</h3>
+      <div className='timeContainer'>
+        <p className='time'>cook time: {cookTime}</p>
+        <p className='time'>prep time: {prepTime}</p>
+      </div>
     </div>
   );
 };

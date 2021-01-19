@@ -1,7 +1,6 @@
 .recipesContainer {
     width: 50%;
-    margin: auto;
-    background-color: lightgray;
+    margin: 0 auto 0 auto;
     padding: 20px 10px;
   }
 
@@ -11,6 +10,6 @@
     text-align: center;
 }
 
-.recipe {
-    background-color: gray;
+li:not(:last-child) {
+  margin-bottom: 15px;
 }
