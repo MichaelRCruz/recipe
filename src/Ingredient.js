@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import SessionContext from './SessionContext.js';
 
+import './Ingredient.css';
+
 const Ingredient = props => {
 
   const sessionContext = useContext(SessionContext);
@@ -9,10 +11,13 @@ const Ingredient = props => {
   
   return specialIngredientsIds.includes(uuid)
       ? <div>
-          <p>{name} also on sale</p>
-          <p>{specialIngredients[uuid].title}</p>
-          <p>{specialIngredients[uuid].type}</p>
-          <p>{specialIngredients[uuid].text}</p>
+          <p>{name}</p>
+          <div className='specialCard'>
+            <h4>special</h4>
+            <p>{specialIngredients[uuid].title}</p>
+            <p>{specialIngredients[uuid].type}</p>
+            <p>{specialIngredients[uuid].text}</p>
+          </div>
         </div>
       : (
         <div>

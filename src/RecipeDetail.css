@@ -1,0 +1,16 @@
+.titleBar {
+    background-color: lightsalmon;
+    text-align: right;
+}
+
+.menuBar {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: unset;
+    padding: 0 10px 0 10px;
+}
+
+.titleBar > li {
+    margin: unset;
+} 
