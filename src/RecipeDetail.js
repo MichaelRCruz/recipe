@@ -38,14 +38,14 @@ const RecipeDetail = props => {
         <ul className='menuBar'>
           <li>Crescendo</li>
           <li>{recipe.title}</li>
-          <li className='close' onClick={() => props.handleClick(false)}>CLOSE X</li>
+          <li className='close' onClick={() => props.handleClick(false)}>close x</li>
         </ul>
       </div>
       <img src={'img/' + recipe.images.medium} alt="sup" />
       <h1>{recipe.title}</h1>
-      <div className='deleteFlex'>
+      <div className='updateFlex'>
         <div className='delete' onClick={() => props.handleDelete()}>delete</div>
-        <div className='edit' onClick={() => props.handleEdit()}>edit</div>
+        <div className='edit' onClick={() => props.handleUpdate(recipe.uuid)}>edit</div>
       </div>
       <p>{recipe.postDate}</p>
       <p>{recipe.editDate}</p>

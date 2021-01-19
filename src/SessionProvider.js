@@ -15,8 +15,8 @@ class SessionProvider extends React.Component {
     specialIngredients: {}
   };
 
-  updateRecipe = uid => {
-    console.log(uid);
+  updateRecipe = uuid => {
+    console.log(uuid, 'in Provider');
   };
 
   initializeApp = async () => {

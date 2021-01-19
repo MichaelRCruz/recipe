@@ -19,6 +19,14 @@ class Recipes extends React.Component {
     });
   }
 
+  handleUpdate = uuid => {
+    this.context.updateRecipe(uuid)
+  }
+
+  handleDelete = uuid => {
+    console.log('deleted');
+  }
+
   render() {
     const { recipesPayload } = this.context.state;
     const recipes = recipesPayload.map(recipe => {
@@ -38,6 +46,8 @@ class Recipes extends React.Component {
           <RecipeDetail
             uuid={this.state.activeRecipe}
             handleClick={this.handleClick}
+            handleUpdate={this.handleUpdate}
+            handleDelete={this.handleDelete}
           />
         </div>
       );
