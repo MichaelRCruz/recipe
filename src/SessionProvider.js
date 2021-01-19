@@ -15,11 +15,14 @@ class SessionProvider extends React.Component {
     specialIngredients: {}
   };
 
-  updateRecipe = uuid => {
-    console.log(uuid, 'in Provider');
+  updateRecipe = async (uuid, payload) => {
+    const updateResponse = await api.updateRecipe(uuid, payload);
+    console.log(uuid, payload, 'in Provider');
+    this.initializeApp();
   };
 
   initializeApp = async () => {
+    console.log('init');
     const recipesPayload = await api.getRecipes();
     const specialsPayload = await api.getSpecials();
     let specialIngredients = {};

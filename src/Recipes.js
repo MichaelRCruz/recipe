@@ -10,17 +10,19 @@ class Recipes extends React.Component {
   static contextType = SessionContext;
 
   state = {
-    activeRecipe: false
+    activeRecipe: false,
+    toggled: false
   }
 
   handleClick = uuid => {
     this.setState({
-      activeRecipe: uuid
+      activeRecipe: uuid,
+      toggled: !this.state.toggled
     });
   }
 
-  handleUpdate = uuid => {
-    this.context.updateRecipe(uuid)
+  handleUpdate = (uuid, payload) => {
+    this.context.updateRecipe(uuid, payload)
   }
 
   handleDelete = uuid => {
@@ -37,7 +39,7 @@ class Recipes extends React.Component {
       );
     });
 
-    return !this.state.activeRecipe
+    return !this.state.toggled && !this.state.activeRecipe
       ? <div className='recipesContainer'>
           <ul className='recipesList'>{recipes}</ul>
         </div>

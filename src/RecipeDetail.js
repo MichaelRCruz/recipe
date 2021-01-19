@@ -44,7 +44,7 @@ const RecipeDetail = props => {
       <img src={'img/' + recipe.images.medium} alt="sup" />
       <h1>{recipe.title}</h1>
       <div className='updateFlex'>
-        <div className='delete' onClick={() => props.handleDelete()}>delete</div>
+        <div className='delete' onClick={() => props.handleDelete(recipe.uuid)}>delete</div>
         <div className='edit' onClick={() => props.handleUpdate(recipe.uuid)}>edit</div>
       </div>
       <p>{recipe.postDate}</p>
@@ -54,7 +54,7 @@ const RecipeDetail = props => {
       <h3>Directions</h3>
       <ol>{directions}</ol>
     </div>
-  );
+   );
 };
 
 export default RecipeDetail;

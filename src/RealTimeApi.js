@@ -41,6 +41,15 @@ export default class RealTimeApi {
       });
       return specials ? specials : {};
     }
+
+    updateRecipe = async (uuid, payload) => {
+      // const url = `http://localhost:3001/recipes/${uuid}`;
+      // const userConfig = await this.goFetch(url, {
+      //   method: 'PUT',
+      //   body: JSON.stringify({ payload })
+      // });
+      return {'uuid': uuid, 'payload': payload}
+    };
   
   
   }
