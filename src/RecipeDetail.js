@@ -32,6 +32,8 @@ const RecipeDetail = props => {
     );
   });
 
+
+
   return (
     <div className='recipeDetail'>
       <div className='titleBar'>
@@ -45,7 +47,7 @@ const RecipeDetail = props => {
       <h1>{recipe.title}</h1>
       <div className='updateFlex'>
         <div className='delete' onClick={() => props.handleDelete(recipe.uuid)}>delete</div>
-        <div className='edit' onClick={() => props.handleUpdate(recipe.uuid)}>edit</div>
+        {/* <div className='edit' onClick={() => props.handleUpdate(recipe.uuid)}>edit</div> */}
       </div>
       <p>{recipe.postDate}</p>
       <p>{recipe.editDate}</p>

@@ -11,13 +11,13 @@ class Recipes extends React.Component {
 
   state = {
     activeRecipe: false,
-    toggled: false
+    toggledRecipe: false
   }
 
   handleClick = uuid => {
     this.setState({
       activeRecipe: uuid,
-      toggled: !this.state.toggled
+      toggledRecipe: !this.state.toggledRecipe
     });
   }
 
@@ -41,7 +41,7 @@ class Recipes extends React.Component {
       );
     });
 
-    return !this.state.toggled && !this.state.activeRecipe
+    return !this.state.toggledRecipe && !this.state.activeRecipe
       ? <div className='recipesContainer'>
           <ul className='recipesList'>{recipes}</ul>
         </div>
