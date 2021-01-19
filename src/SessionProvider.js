@@ -17,7 +17,13 @@ class SessionProvider extends React.Component {
 
   updateRecipe = async (uuid, payload) => {
     const updateResponse = await api.updateRecipe(uuid, payload);
-    console.log(uuid, payload, 'in Provider');
+    console.log(uuid, payload, 'in Provider update');
+    this.initializeApp();
+  };
+
+  deleteRecipe = async (uuid, payload) => {
+    const updateResponse = await api.deleteRecipe(uuid);
+    console.log(uuid, 'in Provider delete');
     this.initializeApp();
   };
 
@@ -46,8 +52,11 @@ class SessionProvider extends React.Component {
     return (
       <SessionContext.Provider value={{
         state: this.state,
-        updateRecipe: key => {
-          this.updateRecipe(key);
+        updateRecipe: (uuid, payload) => {
+          this.updateRecipe(uuid, payload);
+        },
+        deleteRecipe: uuid => {
+          this.deleteRecipe(uuid);
         }
       }}>
         {this.props.children}

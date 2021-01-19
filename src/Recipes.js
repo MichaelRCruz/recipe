@@ -23,12 +23,12 @@ class Recipes extends React.Component {
 
   handleUpdate = (uuid, payload) => {
     this.handleClick();
-    this.context.updateRecipe(uuid, payload)
+    this.context.updateRecipe(uuid, payload);
   }
 
   handleDelete = uuid => {
-    // this.handleClick();
-    console.log('deleted');
+    this.handleClick();
+    this.context.deleteRecipe(uuid);
   }
 
   render() {

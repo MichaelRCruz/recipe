@@ -50,6 +50,14 @@ export default class RealTimeApi {
       // });
       return {'uuid': uuid, 'payload': payload}
     };
+
+    deleteRecipe = async (uuid) => {
+      const url = `http://localhost:3001/recipes/${uuid}`;
+      const response = await this.goFetch(url, {
+        method: 'DELETE',
+      });
+      return response ? response : {};
+    };
   
   
   }
